@@ -8,7 +8,7 @@ from models.review import Review
 
 
 @app_views.route('/places/<place_id>/reviews', methods=['GET'],
-                 strict_slashes=False)
+                strict_slashes=False)
 def reviews(place_id):
     """ Retrieves the list of all Review objects """
     place = storage.get("Place", place_id)
@@ -27,7 +27,7 @@ def r_review_id(review_id):
 
 
 @app_views.route('/reviews/<review_id>', methods=['DELETE'],
-                 strict_slashes=False)
+                strict_slashes=False)
 def del_review(review_id):
     """ Deletes a Review object """
     review = storage.get("Review", review_id)
@@ -39,7 +39,7 @@ def del_review(review_id):
 
 
 @app_views.route('/places/<place_id>/reviews', methods=['POST'],
-                 strict_slashes=False)
+                strict_slashes=False)
 def post_review(place_id):
     """ Creates a Review object """
     place = storage.get("Place", place_id)
@@ -63,7 +63,7 @@ def post_review(place_id):
 
 
 @app_views.route('/reviews/<review_id>', methods=['PUT'],
-                 strict_slashes=False)
+                strict_slashes=False)
 def put_review(review_id):
     """ Updates a Review object """
     review = storage.get("Review", review_id)
@@ -76,7 +76,7 @@ def put_review(review_id):
 
     for k, v in body_request.items():
         if k not in ['id', 'user_id', 'place_id',
-                     'created_at', 'updated_at']:
+                    'created_at', 'updated_at']:
             setattr(review, k, v)
 
     storage.save()
