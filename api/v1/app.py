@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-App module that creates a Flask instance and registers blueprints to it.
+Status of your API
 """
 from flask import Flask, make_response
 from models import storage
